@@ -1,6 +1,8 @@
 <script>
 import {ref} from "vue"
+import Header from './components/Header.vue';
 export default {
+  components: { Header },
   setup( ){
     const datas = ref([]);
     let message = ref('');
@@ -19,16 +21,14 @@ export default {
 }
 </script>
 <template>
-<header class="p-10 bg-blue-200">
-<h1 class="text-center text-[3rem] text-gray-700">TODO list</h1>
-</header>
+ <Header title="匿名投稿" className="p-10 bg-red-200" />
 <section id="creater" class="mt-4 mb-1">
 <form class="text-center">
   <label class= " w-5/6 block mx-auto space-y-2" for="todo-create">
     <h2 class="text-3xl tracking-[.35rem]">請填寫代辦事項:</h2>
   
   <input type="text" id="todo-create" class="w-full border-2 border-gray-400 rounded-md px-2 py-1 text-xl " placeholder=" " v-model="message"/>
-  <input type="submit" value="提交" @click.prevent="addData" v-bind:disabled="message == ''" class="py-3 w-full bg-green-600 rounded-md text-center text-2xl text-gray-100 hover:bg-green-700 active:translate-y-1"/>
+  <input type="submit" value="提交" @click.prevent="addData" v-bind:disabled="message == ''" class="py-3 w-full bg-blue-600 rounded-md text-center text-2xl text-gray-100 hover:bg-blue-700 active:translate-y-1"/>
   </label>
 </form>
 </section>
